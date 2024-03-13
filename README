@@ -1,2 +1,4 @@
 3/13
 I have made some inital code it is not finished and fine tuned with the unique ids of the arudinio
+this code will be based on a xbox controller for their library as seen in the XboxCode file.
+The Bluetooth will be able to connect to other controllers but will need to be modified.
