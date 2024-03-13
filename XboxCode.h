@@ -1,0 +1,14 @@
+//
+// Created by noodle on 3/13/2024.
+//
+
+#ifndef BLUETOOTH_CONNECTION_CODE_XBOXCODE_H
+#define BLUETOOTH_CONNECTION_CODE_XBOXCODE_H
+
+
+class XboxCode {
+
+};
+
+
+#endif //BLUETOOTH_CONNECTION_CODE_XBOXCODE_H
