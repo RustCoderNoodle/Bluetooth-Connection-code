@@ -4,6 +4,7 @@
 USB Usb;
 XBOXONE Xbox(&Usb);
 SoftwareSerial SerialBT(2, 3); // RX, TX pins for Bluetooth module
+const int ledPin = 13; // Pin for LED
 
 void setup() {
     // Initialize serial communication for debugging
@@ -22,6 +23,8 @@ void setup() {
         while (1); // Halt
     }
     Serial.println(F("\r\nXBOX USB Library Started"));
+
+    pinMode(ledPin, OUTPUT); // Set LED pin as output
 }
 
 void loop() {
@@ -34,6 +37,7 @@ void loop() {
         int LFT = Xbox.getButtonPress(LEFT);
         int RHT = Xbox.getButtonPress(RIGHT);
         int start_button = Xbox.getButtonPress(XBOX);
+        int B_button = Xbox.getButtonPress(B);
 
         // Send data over serial to ESP32
         Serial.print(LHX);
@@ -50,6 +54,13 @@ void loop() {
         Serial.print("\t");
         Serial.print(start_button);
         Serial.println();
+
+        // Check if B button is pressed, turn on LED if true
+        if (B_button) {
+            digitalWrite(ledPin, HIGH); // Turn on LED
+        } else {
+            digitalWrite(ledPin, LOW); // Turn off LED
+        }
     }
 
     if (SerialBT.available()) {
@@ -64,6 +75,3 @@ void loop() {
         SerialBT.write(c);
     }
 }
-//
-// Created by noodle on 3/14/2024.
-//
