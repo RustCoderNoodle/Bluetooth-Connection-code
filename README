@@ -2,3 +2,34 @@
 I have made some inital code it is not finished and fine tuned with the unique ids of the arudinio
 this code will be based on a xbox controller for their library as seen in the XboxCode file.
 The Bluetooth will be able to connect to other controllers but will need to be modified.
+3/14
+Install dependencies
+
+
+Install ESP-IDF
+Install the ESP32 toolchain. Use version 4.4 or 5.1. Might work on newer / older
+ones, but not tested.
+
+https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/
+
+
+
+Integrate BTstack into ESP32
+
+cd ${BLUEPAD32}/external/btstack/port/esp32
+# This will install BTstack as a component inside Bluepad32 source code (recommended).
+# Remove "IDF_PATH=../../../../src" if you want it installed in the ESP-IDF folder
+IDF_PATH=../../../../src ./integrate_btstack.py
+
+Compile Bluepad32
+
+# Possible options: esp32, esp32-s3 or esp32-c3
+idf.py set-target esp32
+And compile it:
+
+idf.py build
+
+Flash it
+
+idf.py flash monitor
+
