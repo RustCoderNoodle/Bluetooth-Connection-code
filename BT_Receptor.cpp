@@ -1,13 +1,29 @@
-#include <BluetoothSerial.h>
+#include <SoftwareSerial.h>
 
-BluetoothSerial SerialBT; // Create an instance of the BluetoothSerial class
+SoftwareSerial SerialBT(2, 3); // RX, TX pins for Bluetooth module
 
 void setup() {
-    Serial.begin(9600); // Initialize serial communication for debugging purposes
-    SerialBT.begin("ESP32_BT"); // Start Bluetooth with the name "ESP32_BT"
-    Serial.println("Bluetooth initialized");
+    // Initialize serial communication for debugging
+    Serial.begin(9600);
+    delay(1000);
+    Serial.println("Initializing Bluetooth communication...");
+
+    // Initialize serial communication with Bluetooth module
+    SerialBT.begin(9600);
+    delay(1000);
+    Serial.println("Bluetooth communication initialized.");
 }
 
 void loop() {
-    // Your main code here
+    if (SerialBT.available()) {
+        // If data is available from Bluetooth module, read and print it
+        char c = SerialBT.read();
+        Serial.print(c);
+    }
+
+    if (Serial.available()) {
+        // If data is available from serial monitor, send it to Bluetooth module
+        char c = Serial.read();
+        SerialBT.write(c);
+    }
 }
