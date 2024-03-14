@@ -26,3 +26,4 @@ This will be a guide to add to the arduino IDE
         You can verify the communication by sending data from the Arduino Nano's serial monitor to the ESP32 and vice versa.
         Monitor the serial outputs of both devices to ensure that they are communicating as expected.
 Make sure to connect the TX pin of the Bluetooth module to pin 3 (RX) of the Arduino Nano, and the RX pin of the Bluetooth module to pin 2 (TX) of the Arduino Nano. Additionally, connect the Arduino Nano to the ESP32 via Bluetooth according to your setup.
+If you're using a arduino that does have TX and RX pins modify the BT_Receptor.cpp code to get rid of the serial module
