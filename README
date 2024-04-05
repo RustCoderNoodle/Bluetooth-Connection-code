@@ -4,6 +4,11 @@ this code will be based on a xbox controller for their library as seen in the Xb
 The Bluetooth will be able to connect to other controllers but will need to be modified.
 3/14
 Install dependencies
+4/3
+alright so i made a mistake the XboxCode.cpp is assuming your using a usb im making an ew code ESP32 Conection code.cpp
+for the esp 32 that uses the proper libaries.
+with my current knowledge the BT_Receptor.ccp and .h are what i designed (also took some code) for the ESP 32 to check connection and recieve it.
+the Xbox code uses the xbox library but assumes you are using a USB the new controler.cpp should work with bluetooth
 
 
 Install ESP-IDF
